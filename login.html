@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <title>GameGuidez</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>THEDC TEST LOGIN</title>
 </head>
 <body class="grey lighten-3"">
 
@@ -41,13 +42,22 @@
     <div class="modal-content">
       <h4>Sign up</h4><br />
       <form id="signup-form">
+       <div class="input-field">
+          <input type="text" id="signup-name" required />
+          <label for="signup-name">Your name</label>
+        </div>
+        
         <div class="input-field">
           <input type="email" id="signup-email" required />
           <label for="signup-email">Email address</label>
         </div>
         <div class="input-field">
           <input type="password" id="signup-password" required />
-          <label for="signup-password">Choose password</label>
+          <label for="signup-password">Password</label>
+        </div>
+         <div class="input-field">
+          <input type="text" id="signup-bio" required />
+          <label for="signup-biobio">Your Bio</label>
         </div>
         <button class="btn yellow darken-2 z-depth-0">Sign up</button>
       </form>
@@ -67,7 +77,7 @@
           <input type="password" id="login-password" required />
           <label for="login-password">Your password</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <button class="btn yellow darken-2 z-depth-0" >Login</button>
       </form>
     </div>
   </div>
