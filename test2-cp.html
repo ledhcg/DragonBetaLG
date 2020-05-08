@@ -16,6 +16,7 @@
    <link rel="stylesheet" type='text/css' href="css/bootstrap-reboot.css">
    <link rel="stylesheet" type='text/css' href="css/bootstrap-grid.css">
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,7 +38,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#modalSign">SIGN UP</a>
       </li>
-     
+       <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalVerify">Veryfine verify</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
@@ -67,37 +70,36 @@
 <!-- Sign up form -->
 <div class="modal fade" id="modalSign" tabindex="-1" role="dialog" aria-labelledby="modalSignLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document" >
-    <div class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
-      <div class="modal-header" style="border:none;">
+    <div id="modal-signup" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+         <div class="modal-header" style="border:none;">
        
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
-    
-                
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+                <div class="modal-body">         
                         
                     <div class="row">
                     
                         <div class="col-md-6">
-                        <h2 class="form-title" id="modalSignLabel">SIGN UP <img src="img/logo.svg" width="100" alt=""></h2>
-                         <form class="register-form" id="register-form">
-                         
+                            <h2 class="form-title" id="modalSignLabel">SIGN UP <img src="img/logo.svg" width="100" alt=""></h2>
+                            <form class="register-form" id="signup-form">
+                            <!--
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name"/>
                             </div>
+                            -->
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                <input type="email" name="email" id="signup-email" placeholder="Your Email" />
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                <input type="password" name="pass" id="signup-password" placeholder="Password" />
                             </div>
+
+                            <!---
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
@@ -106,24 +108,24 @@
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
+                            -->
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit rounded-pill" value="Register"/>
                             </div>
-                        </form>
+                            </form>
                         
                         </div>
+
                         <div class="col-md-6">
-                        
                         
                         <figure><img src="https://media.giphy.com/media/iezF6J0km0CY6FQjLh/giphy.gif" alt="sing up image"></figure>
                         <a href="#" class="signup-image-link">I am already member</a>
-                        
                         
                         </div>
                     
                     </div>
                        
-      </div>
+                </div>
       
     </div>
   </div>
@@ -134,14 +136,15 @@
 <div class="modal fade" id="modalSign1" tabindex="-1" role="dialog" aria-labelledby="modalSignLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document" >
     <div class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
-      <div class="modal-header" style="border:none;">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+        <div class="modal-header" style="border:none;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            <div class="modal-body">
     
-        <div class="row">
+                <div class="row">
+
                     <div class="col-md-6">
                  
                         <figure><img src="https://media.giphy.com/media/ZaEhWIkACcsHunINVu/giphy.gif" alt="sing up image"></figure>
@@ -151,7 +154,7 @@
 
                     <div class="col-md-6">
                     
-                    <h2 class="form-title" id="modalSignLabel">SIGN IN <img src="img/logo.svg" width="100" alt=""></h2>
+                        <h2 class="form-title" id="modalSignLabel">SIGN IN <img src="img/logo.svg" width="100" alt=""></h2>
                         <form class="register-form" id="login-form">
                         
                             <div class="form-group">
@@ -178,46 +181,90 @@
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
                         </div>
+
                     </div>
 
-        </div>
+                 </div>
         
+             </div>
     </div>
   </div>
 </div>
-</div>
 
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+<!-- Notify Success -->
+<div class="modal fade" id="modalVerify" tabindex="-1" role="dialog" aria-labelledby="modalVerifyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div id="modal-verify" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+       
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+
+
+    
+                
+                        
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        <h2 class="form-title" id="modalVerifyLabel">Almost done...</h2>
+                        <p>We'll send an email to joe.doe@gmail.com in 5 minutes. Open it up to activate your account.</p>
+                        
+                        </div>
+                        <div class="col-md-6">
+                        
+                        
+                        <figure><img src="https://media.giphy.com/media/iezF6J0km0CY6FQjLh/giphy.gif" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                        
+                        
+                        </div>
+                    
+                    </div>
+                       
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
+        
 
+
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+
+<script>
+    // Initialize Firebase
+   var firebaseConfig = {
+    apiKey: "AIzaSyB-UBz6aYZW1tn5JOD8H1W-jiiRxBOhqAY",
+    authDomain: "dinhcuong-users.firebaseapp.com",
+    databaseURL: "https://dinhcuong-users.firebaseio.com",
+    projectId: "dinhcuong-users",
+    storageBucket: "dinhcuong-users.appspot.com",
+    messagingSenderId: "818165810364",
+    appId: "1:818165810364:web:4783b8c064767425d0fcb9",
+    measurementId: "G-T5FMBS7VDX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    //db.settings({ timestampsInSnapshots: true });
+  </script>
     <!-- JS -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-  
+    <script src="js/main.js"></script>
+     <script src="js/auth.js"></script>
 </body>
 </html>

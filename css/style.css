@@ -185,9 +185,7 @@ h2 {
   font-family: Poppins;
   font-size: 36px; }
 
-.main {
-  background: #f8f8f8;
-  padding: 150px 0; }
+
 
 .clear {
   clear: both; }
@@ -196,7 +194,8 @@ body {
   font-size: 13px;
   line-height: 1.8;
   color: #222;
-  background: #f8f8f8;
+  background: rgb(15,12,41);
+  background: linear-gradient(90deg, rgba(15,12,41,1) 0%, rgba(48,43,99,1) 52%, rgba(36,36,62,1) 100%);
   font-weight: 400;
   font-family: Poppins; }
 
