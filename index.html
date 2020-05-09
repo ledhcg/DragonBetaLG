@@ -1,58 +1,399 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>THE DC | LOGIN </title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-   
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
 
-    <!-- Start CSS -->
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    
+    
     <link rel="stylesheet" type='text/css' href="css/bootstrap.css">
-
-    <!-- End CSS -->
+   <link rel="stylesheet" type='text/css' href="css/bootstrap-reboot.css">
+   <link rel="stylesheet" type='text/css' href="css/bootstrap-grid.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <a class="navbar-brand" href="#">
+    <img src="img/logo.svg" width="100" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-<i class="fa fa-car"></i>
-<i class="fa fa-car" style="font-size:48px;"></i>
-<i class="fa fa-car" style="font-size:60px;color:red;"></i>
-    <div class="main">
-    <d1>SIGN UP</d1>
-    
-    <form class='form-group'>
-        <div >        
-            <label for='name'>Name</label>
-            <input class='form-control ' type='text' id='name' aria-describedby='emailHelp' placeholder='Your name'>
-            <small id="emailHelp" class="form-text text-muted">Enter your name</small>
-            <br>
-        
-            <label for='Email'>Email</label>
-            <input class='form-control ' type='email' id='email' placeholder='Your email'>
-            <br>
-            <label for='Password'>Password</label>
-            <input class='form-control ' type='password' id='password' placeholder='Your password'>
-
-        </div>
-        
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item logged-out" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalSignIn">SIGN IN</a>
+      </li>
+      <li class="nav-item logged-out" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalSignUp">SIGN UP</a>
+      </li>
+       <li class="nav-item logged-in" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalVerify">Veryfine verify</a>
+      </li>
+      <li class="nav-item logged-in" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalForgot">Resend</a>
+      </li>
+      <li class="nav-item logged-in" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-create">Create Note</a>
+      </li>
+   
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+  </div>
+</nav>
 
+
+<!-- Sign up form -->
+<div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document" >
+    <div id="modal-signup" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+         <div class="modal-header" style="border:none;">
+       
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+                <div class="modal-body">         
+                        
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                            <h2 class="form-title" id="modalSignUpLabel">SIGN UP</h2>
+                            <form class="register-form" id="signup-form">
+                            
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="signup-name" placeholder="Your Name"/>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="signup-email" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="signup-password" placeholder="Password" />
+                            </div>
+
+                            <!---
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            -->
+                            <div class="form-group form-button">
+                                <input type="submit" name="signUp" id="signUp" class="form-submit rounded-pill" value="Register"/>
+                            </div>
+                            </form>
+                        
+                        </div>
+
+                        <div class="col-md-6">
+                        
+                        <figure><img src="https://media.giphy.com/media/iezF6J0km0CY6FQjLh/giphy.gif" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">Forgot password? <b>Reset password</b></a>
+                        
+                        </div>
+                    
+                    </div>
+                       
+                </div>
+      
     </div>
+  </div>
+</div>
+        
 
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Sing in  Form -->
+<div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document" >
+    <div class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+        <div class="modal-header" style="border:none;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            <div class="modal-body">
     
-    <!-- Start Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  
-    <script src="js/bootstrap.js"></script>
-    <!-- End Script -->
+                <div class="row">
 
+                    <div class="col-md-6">
+                 
+                        <figure><img src="https://media.giphy.com/media/ZaEhWIkACcsHunINVu/giphy.gif" alt="sing up image"></figure>
+                        
+                        <a href="#" class="signup-image-link">Don't have an account? <b>Create account</b></a>
+                  
+                    </div>
+
+                    <div class="col-md-6">
+                    
+                        <h2 class="form-title" id="modalSignInLabel">SIGN IN</h2>
+                        <form class="register-form" id="login-form">
+                          <!--
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            </div>
+                            -->
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="login-email" placeholder="Your Email" autocomplete="on" />
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="login-password" placeholder="Password" autocomplete="on"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="login" id="login" class="form-submit rounded-pill" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                 </div>
+        
+             </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notify Success -->
+<div class="modal fade" id="modalVerify" tabindex="-1" role="dialog" aria-labelledby="modalVerifyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div id="modal-verify" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+    
+                
+                        
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        <h5 class="form-title" id="modalVerifyLabel">Almost done...</h5>
+                        <p>A verification link has been sent to your email address. Open it up to activate your account.</p>
+                         <p>Can't find it? Check your spam mail.</p>
+                        
+                        </div>
+                        <div class="col-md-6">
+                        
+                        
+                        <figure><img src="https://media.giphy.com/media/eiorEar8PB7RRQNOMf/giphy.gif" alt="sing up image"></figure>
+                        <div class="form-button">
+                        <input type="submit" name="resendEmail" id="resendEmail" class="form-submit rounded-pill" value="RESEND EMAIL"/>
+                        </div>
+                        
+                        
+                        </div>
+                    
+                    </div>
+                       
+      </div>
+      
+    </div>
+  </div>
+</div>
+        
+<!-- Forgot Success -->
+<div class="modal fade" id="modalForgot" tabindex="-1" role="dialog" aria-labelledby="modalForgotLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div id="modal-forgot" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+    
+                
+                        
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        <h5 class="form-title" id="modalForgotLabel">Forgot password</h5>
+                        <p>Don't worry. Enter your email address, a link will be sent to reset your password.</p>
+                        
+                        </div>
+                        <div class="col-md-6">
+                        
+                        
+                        <figure><img src="https://media.giphy.com/media/KZxehW0UsjEELKlw37/giphy.gif" alt="sing up image"></figure>
+                       
+                        
+                        
+                        </div>
+                    
+                    </div>
+                       <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="reset-pass" placeholder="Your Email" />
+                            </div>
+                             <div class="form-button">
+                        <input type="submit" name="resetPass" id="resetPass" class="form-submit rounded-pill" value="RESET PASSWORD"/>
+                        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUser">
+  Launch demo modal
+</button>
+
+  <!-- GUIDE LIST -->
+  <div>
+    <ul class="guides">
+    </ul>
+  </div>
+
+<!-- Account User -->
+<div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="modalUserLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content" style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+        <h5 class="modal-title" id="modalUserLabel">MY INFOMATION</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          <div class="col-sm-3">
+          <img src="img/wallpaper.png" class="avatar">
+          </div>
+       
+          <div class="col-lg-6">
+          <i class="zmdi zmdi-friend zmdi-badge-check"></i><div class="account-details"></div>
+          <img src="https://media.giphy.com/media/XaGU6GgEBdGtPAvrXj/giphy.gif">
+           <div class="form-button">
+                        <input type="submit" name="logout" id="logout" class="form-submit rounded-pill" value="LOGOUT"/>
+                        </div>
+          </div>
+        
+        
+        
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- CREATE GUIDE MODAL -->
+
+<div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="modalCreateCreateLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+    
+                 <h5>Create Note</h5><br />
+      <form id="create-form">
+   
+                            <div class="form-group">
+                                <label for="title"><i class="zmdi zmdi-quote"></i></label>
+                                <input type="text" name="title" id="title" placeholder="Title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="content"><i class="zmdi zmdi-edit"></i></label>
+                                <input type="text" name="content" id="content" placeholder="Content" />
+                            </div>
+                           <div class="form-group form-button">
+                                <input type="submit" name="create" id="create" class="form-submit rounded-pill" value="Create"/>
+                            </div>
+      </form>
+                        
+                   
+                   
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+
+<script>
+    // Initialize Firebase
+   var firebaseConfig = {
+    apiKey: "AIzaSyB-UBz6aYZW1tn5JOD8H1W-jiiRxBOhqAY",
+    authDomain: "dinhcuong-users.firebaseapp.com",
+    databaseURL: "https://dinhcuong-users.firebaseio.com",
+    projectId: "dinhcuong-users",
+    storageBucket: "dinhcuong-users.appspot.com",
+    messagingSenderId: "818165810364",
+    appId: "1:818165810364:web:4783b8c064767425d0fcb9",
+    measurementId: "G-T5FMBS7VDX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    //db.settings({ timestampsInSnapshots: true });
+  </script>
+    <!-- JS -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+     <script src="js/auth.js"></script>
 </body>
 </html>
