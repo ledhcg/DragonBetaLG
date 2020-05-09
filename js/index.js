@@ -13,7 +13,20 @@ const setupUI = (user) => {
       <div>${doc.data().name}</div>
       <div>Logged in as ${user.email}</div>
     `;
-    accountDetails.innerHTML = html;
+
+    const realFriend =`
+    <i class="zmdi zmdi-friend zmdi-badge-check"></i>
+    `;
+    const guest =`
+    <p>Only Guest</p>
+    `;
+      // check readfriend if (friend = true ) => icon if false => only guest
+    if (doc.data().friend){
+      accountDetails.innerHTML = realFriend + html;
+    }else{
+      accountDetails.innerHTML = guest + html;
+    }
+    //accountDetails.innerHTML = html ;
     });
     // toggle user UI elements
     loggedInLinks.forEach(item => item.style.display = 'block');
@@ -47,3 +60,8 @@ const setupGuides = (data) => {
 }
 
 };
+
+$('.loginAgain').on('click',function() {
+  $('#modalSignIn').modal('show');
+  $('#modalLogout').modal('hide');
+});

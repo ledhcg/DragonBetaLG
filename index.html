@@ -19,6 +19,7 @@
    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
 </head>
 <body>
+<div class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
    <a class="navbar-brand" href="#">
     <img src="img/logo.svg" width="100" alt="">
@@ -47,7 +48,10 @@
       <li class="nav-item logged-in" style="display: none;">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-create">Create Note</a>
       </li>
-   
+      </li>
+      <li class="nav-item logged-in" style="display: none;">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalUser">USER</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -187,6 +191,49 @@
   </div>
 </div>
 
+<!-- Notify Logout -->
+<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modalLogoutLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div id="modal-logout" class="modal-content"style="border:none; border-radius: 30px; padding: 30px 30px 30px 30px;">
+      <div class="modal-header" style="border:none;">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+    
+                
+                        
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                        <h5 class="form-title" id="modalLogoutLabel">So sad...</h5>
+                        <p>Comeback soon with me.</p>
+              
+                        
+                        </div>
+                        <div class="col-md-6">
+                        
+                        
+                        <figure><img src="https://media.giphy.com/media/eiorEar8PB7RRQNOMf/giphy.gif" alt="sing up image"></figure>
+                        <div class="form-button">
+                        <input type="submit" name="loginAgain" id="loginAgian" class="form-submit rounded-pill loginAgain" value="LOGIN AGAIN"/>
+                        </div>
+                        
+                        
+                        </div>
+                    
+                    </div>
+                       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 <!-- Notify Success -->
 <div class="modal fade" id="modalVerify" tabindex="-1" role="dialog" aria-labelledby="modalVerifyLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document" >
@@ -276,14 +323,11 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUser">
-  Launch demo modal
-</button>
+
 
   <!-- GUIDE LIST -->
   <div>
-    <ul class="guides">
+    <ul class="guides text-white">
     </ul>
   </div>
 
@@ -305,7 +349,7 @@
           </div>
        
           <div class="col-lg-6">
-          <i class="zmdi zmdi-friend zmdi-badge-check"></i><div class="account-details"></div>
+         <div class="account-details"></div>
           <img src="https://media.giphy.com/media/XaGU6GgEBdGtPAvrXj/giphy.gif">
            <div class="form-button">
                         <input type="submit" name="logout" id="logout" class="form-submit rounded-pill" value="LOGOUT"/>
@@ -360,7 +404,7 @@
   </div>
 </div>
 
-
+</div>
 <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>

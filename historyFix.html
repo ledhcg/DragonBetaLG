@@ -19,3 +19,43 @@
   outline: 0;
                   (old | box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); )
 }
+
+fix avatar ?? not done
+
+
+<!--hide modal boostrap -->
+From bootstrap doc :
+
+Manually hides a modal.
+
+.modal('hide')
+
+$('.modal').modal('hide')
+So if you want to hide it on click you can bind this action to the click event
+
+$('#yourid').on('click' , function() { 
+  $('.modal').modal('hide')
+});
+if you want to hide it after some second that you loaded the document you can try with a timeout
+
+$(function(){  //document ready
+..
+.. //your code
+..
+
+ setTimeout(function(){
+       $('.modal').modal('hide')
+ }, 2000);  //2000 = 2 second
+
+..
+})
+UPDATE 1
+
+To bind it on the close button give him a class or id
+
+<a href="#" class="btn closebtn">Close</a>
+now
+
+$('.closebtn').on('click',function() {
+   $('.modal').modal('hide');
+});

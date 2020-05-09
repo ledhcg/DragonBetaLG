@@ -1,6 +1,3 @@
-db.collection('guides').get().then(snapshot => {
-  setupGuides(snapshot.docs);
-});
 
 // listen for auth status changes
 auth.onAuthStateChanged(user => {
@@ -63,7 +60,10 @@ const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
   e.preventDefault();
   auth.signOut().then(() => {
+    $('#modalUser').modal('hide');
     console.log('user signed out');
+    $('#modalUser').modal('hide');
+    $('#modalLogout').modal('show');
   })
 });
 
