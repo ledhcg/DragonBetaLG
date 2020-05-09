@@ -10,7 +10,7 @@ const setupUI = (user) => {
     // account info
     db.collection('users').doc(user.uid).get().then(doc => {
     const html = `
-      <div>${doc.data().name}</div>
+      <h2>${doc.data().name}</h2>
       <div>Logged in as ${user.email}</div>
     `;
 
@@ -21,11 +21,30 @@ const setupUI = (user) => {
     <p>Only Guest</p>
     `;
       // check readfriend if (friend = true ) => icon if false => only guest
-    if (doc.data().friend){
-      accountDetails.innerHTML = realFriend + html;
-    }else{
-      accountDetails.innerHTML = guest + html;
+    
+
+    const verify = `
+    <div>Please verify your email address.</div>
+    `;
+    // Check verify email address
+    console.log("Verify: ", user.emailVerified);
+    if (user.emailVerified) { 
+        if (doc.data().friend){
+            accountDetails.innerHTML = realFriend + html;
+        }else {
+            accountDetails.innerHTML = guest + html;
+        }
+    } else {
+        if (doc.data().friend){
+            accountDetails.innerHTML = verify + realFriend + html;
+        }else {
+            accountDetails.innerHTML = verify + guest + html;
+        }
     }
+    
+
+
+
     //accountDetails.innerHTML = html ;
     });
     // toggle user UI elements

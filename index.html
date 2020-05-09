@@ -8,7 +8,7 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <!-- Main css -->
     
     
@@ -93,6 +93,8 @@
                                 <input type="password" name="pass" id="signup-password" placeholder="Password" />
                             </div>
 
+
+                            <p class="error text-center"></p>
                             <!---
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
@@ -169,6 +171,7 @@
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
+                            <p class="error text-center"></p>
                             <div class="form-group form-button">
                                 <input type="submit" name="login" id="login" class="form-submit rounded-pill" value="Log in"/>
                             </div>
@@ -178,7 +181,7 @@
                             <ul class="socials">
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                                <li><a onclick="googleLogIn()" href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
                         </div>
 
@@ -342,16 +345,37 @@
         </button>
       </div>
       <div class="modal-body">
+      <div class="jumbotron">
+  <h1 class="display-4">Almost done...</h1>
+  <p class="lead">Please verify your email address.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-danger btn-sm" href="#" role="button">SEND VERIFICATION EMAIL</a>
+    <p>A verification link has been sent to your email address. Open it up to activate your account.</p>
+  </p>
+</div>
         <div class="row">
           
-          <div class="col-sm-3">
-          <img src="img/wallpaper.png" class="avatar">
+          <div class="col-md-6 ml-auto text-center">
+          <section class="live">
+           <div class="person live-active">
+      <div class="profile-pic" style="background-image: url('img/wallpaper.png')"></div>
+      <p class="name">BEST FRIEND</p>
+      <span><i class="fas fa-fire"></i></span>
+    </div>
+     
+          </section>
+          <div class="btn btn-sm btn-success rounded-pill text-white">Active</div>
+<div class="account-details"></div>
+
+
           </div>
        
-          <div class="col-lg-6">
-         <div class="account-details"></div>
-          <img src="https://media.giphy.com/media/XaGU6GgEBdGtPAvrXj/giphy.gif">
-           <div class="form-button">
+          <div class="col-md-6 ml-auto">
+          
+            
+             <img src="https://media.giphy.com/media/XaGU6GgEBdGtPAvrXj/giphy.gif">
+            <div class="form-button">
                         <input type="submit" name="logout" id="logout" class="form-submit rounded-pill" value="LOGOUT"/>
                         </div>
           </div>
@@ -434,6 +458,7 @@
     <!-- JS -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/main.js"></script>
