@@ -147,6 +147,49 @@ const googleLogIn=()=>{
 };
 
 
+//Fb SignIn
+
+const facebookLogIn=()=>{
+
+  var provider = new firebase.auth.FacebookAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+
+    return db.collection('users').doc(result.user.uid).set({
+      name: user.displayName,
+      avatarURL: user.photoURL,
+      //Set state of friend
+      friend: false,
+      verify: false
+    
+
+
+
+    });
+    console.log(cred.user);
+    // ...
+    console.log(user.displayName);
+    console.log(user.photoURL);
+    console.log("Succeeded");
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+   
+    console.log(error.message);
+  });
+};
+
+
 //Send email of verification
 
 
