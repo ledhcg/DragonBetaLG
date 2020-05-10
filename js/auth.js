@@ -6,6 +6,9 @@ auth.onAuthStateChanged(user => {
     db.collection('guides').onSnapshot(snapshot => {
       setupGuides(snapshot.docs);
       setupUI(user);
+      googleUI(user);
+      // test app
+     
     }, err => console.log(err.message));
   } else {
     console.log('user logged out');
@@ -43,7 +46,7 @@ signupForm.addEventListener('submit', (e) => {
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     return db.collection('users').doc(cred.user.uid).set({
       name: signupForm['signup-name'].value,
-
+      avatarURL: "https://static1.squarespace.com/static/54b7b93ce4b0a3e130d5d232/54e20ebce4b014cdbc3fd71b/5a992947e2c48320418ae5e0/1519987239570/icon.png",
       //Set state of friend
       friend: false,
       verify: false
@@ -103,24 +106,64 @@ loginForm.addEventListener('submit', (e) => {
 
 //Google SignIn
 
-googleLogIn=()=>{
+const googleLogIn=()=>{
+
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+
+    return db.collection('users').doc(result.user.uid).set({
+      name: user.displayName,
+      avatarURL: user.photoURL,
+      //Set state of friend
+      friend: false,
+      verify: false
+    
+
+
+
+    });
+    console.log(cred.user);
     // ...
+    console.log(user.displayName);
+    console.log(user.photoURL);
     console.log("Succeeded");
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
+    
     var errorMessage = error.message;
     // The email of the user's account used.
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
     // ...
-    console.log("Error");
+   
+    console.log(error.message);
   });
+};
+
+
+//Send email of verification
+
+
+
+const getEmailVerification=() => {
+  
+  const notifyResult = document.querySelector('.notify-result');
+  var user = firebase.auth().currentUser;
+const success =`
+<div>Email sent successfully</div>
+`;
+const error =`
+<div>Email sent failed.</div>
+`;
+user.sendEmailVerification().then(function() {
+ notifyResult.innerHTML = success;
+}).catch(function(error) {
+  notifyResult.innerHTML = error;
+});
 };
