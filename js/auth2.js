@@ -4,15 +4,15 @@ auth.onAuthStateChanged(user => {
   if (user) {
     console.log('user logged in: ', user);
     db.collection('guides').onSnapshot(snapshot => {
-      window.location.replace('http://127.0.0.1:5500/index2.html');
       setupGuides(snapshot.docs);
       setupUI(user);
       googleUI(user);
-      
+      // test app
      
     }, err => console.log(err.message));
   } else {
     console.log('user logged out');
+    window.location.replace('http://127.0.0.1:5500/index.html');
     setupUI();
     setupGuides([]);
     

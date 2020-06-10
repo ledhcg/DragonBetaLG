@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+   
+
+</head>
+<body>
+
+    <style>
+
+/* This is purely for the demo */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.plyr {
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+    </style>
+    
+    <div class="container">
+        <div class="plyr__video-embed" id="player">
+            <iframe
+              src="https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;controls=1&amp;enablejsapi=1;"
+              allowfullscreen
+              allowtransparency
+              allow="autoplay"
+            ></iframe>
+          </div>
+          
+          <div class="actions">
+            <button type="button" class="btn js-play">Play</button>
+            <button type="button" class="btn js-pause">Pause</button>
+            <button type="button" class="btn js-stop">Stop</button>
+            <button type="button" class="btn js-rewind">Rewind</button>
+            <button type="button" class="btn js-forward">Forward</button>
+          </div>
+        </div>
+
+
+    <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+      <script>
+       document.addEventListener('DOMContentLoaded', () => { 
+  // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+  const player = new Plyr('#player');
+  
+  // Expose
+  window.player = player;
+
+  // Bind event listener
+  function on(selector, type, callback) {
+    document.querySelector(selector).addEventListener(type, callback, false);
+  }
+
+  // Play
+  on('.js-play', 'click', () => { 
+    player.play();
+  });
+
+  // Pause
+  on('.js-pause', 'click', () => { 
+    player.pause();
+  });
+
+  // Stop
+  on('.js-stop', 'click', () => { 
+    player.stop();
+  });
+
+  // Rewind
+  on('.js-rewind', 'click', () => { 
+    player.rewind();
+  });
+
+  // Forward
+  on('.js-forward', 'click', () => { 
+    player.forward();
+  });
+});
+
+      </script>
+    
+</body>
+</html>
